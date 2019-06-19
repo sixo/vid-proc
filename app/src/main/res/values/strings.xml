@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">VidProc</string>
+
+    <string name="err_one_file">You need to select multiple files</string>
+
+    <string name="warn_no_video">No video file generated yet</string>
+    <string name="warn_no_storage_permission">Don\'t have permission to select images from external storage</string>
+    <string name="but_add_images">Add images...</string>
+    <string name="but_create_time_lapse">Create Time-Lapse</string>
+</resources>
