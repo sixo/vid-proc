@@ -81,13 +81,26 @@ fun requestStoragePermission(activity: AppCompatActivity, code: Int) {
         activity.requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), code)
 }
 
-fun performFileSearch(activity: AppCompatActivity, code: Int, vararg mimetype: String) {
+fun performFileSearch(activity: AppCompatActivity, code: Int, multiple: Boolean, type: String,
+                      vararg mimetype: String) {
     val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
         addCategory(Intent.CATEGORY_OPENABLE)
-        type = "image/*"
+        this.type = type
         putExtra(Intent.EXTRA_MIME_TYPES, mimetype)
-        putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        putExtra(Intent.EXTRA_ALLOW_MULTIPLE, multiple)
     }
 
     activity.startActivityForResult(intent, code)
+}
+
+fun performAudioSearch(activity: AppCompatActivity, code: Int) {
+    performFileSearch(activity, code, false,
+        "audio/*",
+        "audio/3gpp", "audio/mpeg", "audio/x-ms-wma", "audio/x-wav", "audio/x-flac")
+}
+
+fun performImagesSearch(activity: AppCompatActivity, code: Int) {
+    performFileSearch(activity, code, true,
+        "image/*",
+        "image/png", "image/jpeg", "image/tiff")
 }
