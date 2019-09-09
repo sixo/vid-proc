@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     this@MainActivity, CODE_IMAGE_SEARCH)
             } else if (requestCode == CODE_AUDIO_SEARCH) {
                 performAudioSearch(
-                    this@MainActivity, CODE_IMAGE_SEARCH)
+                    this@MainActivity, CODE_AUDIO_SEARCH)
             }
         }
     }

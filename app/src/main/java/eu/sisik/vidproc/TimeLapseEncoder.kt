@@ -172,6 +172,9 @@ class TimeLapseEncoder {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
             renderer.draw(size!!.width, size!!.height, bitmap, getMvp())
 
+            EGLExt.eglPresentationTimeANDROID(eglDisplay, eglSurface,
+                presentationTimeUs * 1000)
+
             // Feed encoder with next frame produced by OpenGL
             EGL14.eglSwapBuffers(eglDisplay, eglSurface)
         }
